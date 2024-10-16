@@ -55,37 +55,6 @@ resource "aws_route" "task2_public_route" {
   gateway_id             = aws_internet_gateway.task2_igw.id
 }
 
-# resource "aws_eip" "task2_nat_eip" {
-#   vpc = true
-# }
-#
-# resource "aws_nat_gateway" "task2_nat_gateway" {
-#   allocation_id = aws_eip.task2_nat_eip.id
-#   subnet_id     = aws_subnet.task2_public_subnet.id
-#   tags = {
-#     Name = "task2_nat_gateway"
-#   }
-# }
-#
-#
-# resource "aws_route_table" "task2_private_route_table" {
-#   vpc_id = aws_vpc.task2_vpc.id
-#   tags = {
-#     Name = "task2_private_route_table"
-#   }
-# }
-#
-# resource "aws_route_table_association" "task2_private_route_assoc" {
-#   subnet_id      = aws_subnet.task2_private_subnet.id
-#   route_table_id = aws_route_table.task2_private_route_table.id
-# }
-#
-# resource "aws_route" "task2_private_route" {
-#   route_table_id         = aws_route_table.task2_private_route_table.id
-#   destination_cidr_block = "0.0.0.0/0"
-#   nat_gateway_id         = aws_nat_gateway.task2_nat_gateway.id
-# }
-
 resource "aws_security_group" "task2_public_sg" {
   vpc_id = aws_vpc.task2_vpc.id
 
